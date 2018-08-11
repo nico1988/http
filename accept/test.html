@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>aaaa</title>
+</head>
+<body>
+  1111111111111
+  <!-- <form class="" action="/form" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <input type="submit" value="提交">
+  </form> -->
+  <form class="" action="/form" id="form" method="post" enctype="multipart/form-data">
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <input type="file" name="file" value="">
+    <input type="submit" value="提交">
+  </form>
+  <script type="text/javascript">
+    var form = document.querySelector('#form')
+    form.addEventListener('submit',function(e){
+      e.preventDefault()
+      console.log(1)
+      var formData = new FormData(form)
+      fetch('/form',{
+        method:'post',
+        body: formData
+      })
+    })
+  </script>
+</body>
+</html>
