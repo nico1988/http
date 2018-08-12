@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="">
+    this is content data is <span id="data"></span>
+  </div>
+  <button type="button" id="button" name="button">click me to fetch</button>
+  cookie test
+  <script type="text/javascript">
+    var index = 0;
+    function doFech(){
+      document.getElementById('data').innerText = ''
+      fetch('/data',{
+        headers:{
+          'X-test-cache': index++
+        }
+      }).then(function(res){
+        return res.text()
+      }).then(function(t){
+        document.getElementById('data').innerText = t;
+      })
+    }
+    document.getElementById('button').addEventListener('click',doFech)
+  </script>
+</body>
+</html>
